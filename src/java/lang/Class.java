@@ -374,11 +374,16 @@ public final class Class<T> implements java.io.Serializable,
      *          object.
      * @throws  IllegalAccessException  if the class or its nullary
      *          constructor is not accessible.
+     *          如果类或者类的无参构造器时不可访问的
      * @throws  InstantiationException
      *          if this {@code Class} represents an abstract class,
      *          an interface, an array class, a primitive type, or void;
      *          or if the class has no nullary constructor;
      *          or if the instantiation fails for some other reason.
+     *          如果此｛@code Class｝表示抽象类、
+     *          *接口、数组类、基元类型或void；
+     *          *或者如果类没有null构造函数；
+     *          *或者如果实例化由于某些其他原因而失败。
      * @throws  ExceptionInInitializerError if the initialization
      *          provoked by this method fails.
      * @throws  SecurityException
@@ -574,11 +579,12 @@ public final class Class<T> implements java.io.Serializable,
     }
 
     /**
+     * 判断是否为合成类
      * Returns {@code true} if this class is a synthetic class;
      * returns {@code false} otherwise.
      * @return {@code true} if and only if this class is a synthetic class as
      *         defined by the Java Language Specification.
-     * @jls 13.1 The Form of a Binary
+     * jls 13.1 The Form of a Binary
      * @since 1.5
      */
     public boolean isSynthetic() {
@@ -644,6 +650,7 @@ public final class Class<T> implements java.io.Serializable,
     }
 
     // cache the name to reduce the number of calls into the VM
+    // 缓存名称以减少对虚拟机的调用次数
     private transient String name;
     private native String getName0();
 
@@ -686,10 +693,11 @@ public final class Class<T> implements java.io.Serializable,
     }
 
     // Package-private to allow ClassLoader access
+    //允许ClassLoader访问的专用包
     ClassLoader getClassLoader0() { return classLoader; }
 
-    // Initialized in JVM not by private constructor
-    // This field is filtered from reflection access, i.e. getDeclaredField
+    // Initialized in JVM not by private constructor 在JVM中初始化，而不是由私有构造函数初始化
+    // This field is filtered from reflection access, i.e. getDeclaredField 此字段是从反射访问中筛选出来的，即getDeclaredField
     // will throw NoSuchFieldException
     private final ClassLoader classLoader;
 
@@ -702,6 +710,7 @@ public final class Class<T> implements java.io.Serializable,
      *
      * @return an array of {@code TypeVariable} objects that represent
      *     the type variables declared by this generic declaration
+     *         {@code TypeVariable｝对象的数组，这些对象表示*此泛型声明声明的类型变量
      * @throws java.lang.reflect.GenericSignatureFormatError if the generic
      *     signature of this generic declaration does not conform to
      *     the format specified in
@@ -758,7 +767,7 @@ public final class Class<T> implements java.io.Serializable,
      * @throws java.lang.reflect.MalformedParameterizedTypeException if the
      *     generic superclass refers to a parameterized type that cannot be
      *     instantiated  for any reason
-     * @return the superclass of the class represented by this object
+     * @return the superclass of the class represented by this object 该对象表示的类的超类
      * @since 1.5
      */
     public Type getGenericSuperclass() {
@@ -1548,8 +1557,8 @@ public final class Class<T> implements java.io.Serializable,
      *         of this class.
      *
      * @since JDK1.1
-     * @jls 8.2 Class Members
-     * @jls 8.3 Field Declarations
+     * jls 8.2 Class Members
+     * jls 8.3 Field Declarations
      */
     @CallerSensitive
     public Field[] getFields() throws SecurityException {
@@ -1605,8 +1614,8 @@ public final class Class<T> implements java.io.Serializable,
      *         s.checkPackageAccess()} denies access to the package
      *         of this class.
      *
-     * @jls 8.2 Class Members
-     * @jls 8.4 Method Declarations
+     * jls 8.2 Class Members
+     * jls 8.4 Method Declarations
      * @since JDK1.1
      */
     @CallerSensitive
@@ -1691,8 +1700,8 @@ public final class Class<T> implements java.io.Serializable,
      *         of this class.
      *
      * @since JDK1.1
-     * @jls 8.2 Class Members
-     * @jls 8.3 Field Declarations
+     * jls 8.2 Class Members
+     * jls 8.3 Field Declarations
      */
     @CallerSensitive
     public Field getField(String name)
@@ -1773,8 +1782,8 @@ public final class Class<T> implements java.io.Serializable,
      *         s.checkPackageAccess()} denies access to the package
      *         of this class.
      *
-     * @jls 8.2 Class Members
-     * @jls 8.4 Method Declarations
+     * jls 8.2 Class Members
+     * jls 8.4 Method Declarations
      * @since JDK1.1
      */
     @CallerSensitive
@@ -1907,8 +1916,8 @@ public final class Class<T> implements java.io.Serializable,
      *          </ul>
      *
      * @since JDK1.1
-     * @jls 8.2 Class Members
-     * @jls 8.3 Field Declarations
+     * jls 8.2 Class Members
+     * ls 8.3 Field Declarations
      */
     @CallerSensitive
     public Field[] getDeclaredFields() throws SecurityException {
@@ -1965,8 +1974,8 @@ public final class Class<T> implements java.io.Serializable,
      *
      *          </ul>
      *
-     * @jls 8.2 Class Members
-     * @jls 8.4 Method Declarations
+     * jls 8.2 Class Members
+     * jls 8.4 Method Declarations
      * @since JDK1.1
      */
     @CallerSensitive
@@ -2058,8 +2067,8 @@ public final class Class<T> implements java.io.Serializable,
      *          </ul>
      *
      * @since JDK1.1
-     * @jls 8.2 Class Members
-     * @jls 8.3 Field Declarations
+     * jls 8.2 Class Members
+     * jls 8.3 Field Declarations
      */
     @CallerSensitive
     public Field getDeclaredField(String name)
@@ -2117,8 +2126,8 @@ public final class Class<T> implements java.io.Serializable,
      *
      *          </ul>
      *
-     * @jls 8.2 Class Members
-     * @jls 8.4 Method Declarations
+     * jls 8.2 Class Members
+     * jls 8.4 Method Declarations
      * @since JDK1.1
      */
     @CallerSensitive

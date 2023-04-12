@@ -301,7 +301,7 @@ public interface AnnotatedElement {
      * The caller of this method is free to modify the returned array; it will
      * have no effect on the arrays returned to other callers.
      *
-     * @implSpec The default implementation first calls {@link
+     * implSpec The default implementation first calls {@link
      * #getDeclaredAnnotationsByType(Class)} passing {@code
      * annotationClass} as the argument. If the returned array has
      * length greater than zero, the array is returned. If the returned
@@ -352,7 +352,7 @@ public interface AnnotatedElement {
      * This method ignores inherited annotations. (Returns null if no
      * annotations are directly present on this element.)
      *
-     * @implSpec The default implementation first performs a null check
+     * implSpec The default implementation first performs a null check
      * and then loops over the results of {@link
      * #getDeclaredAnnotations} returning the first annotation whose
      * annotation type matches the argument type.
@@ -397,7 +397,7 @@ public interface AnnotatedElement {
      * The caller of this method is free to modify the returned array; it will
      * have no effect on the arrays returned to other callers.
      *
-     * @implSpec The default implementation may call {@link
+     * implSpec The default implementation may call {@link
      * #getDeclaredAnnotation(Class)} one or more times to find a
      * directly present annotation and, if the annotation type is
      * repeatable, to find a container annotation. If annotations of

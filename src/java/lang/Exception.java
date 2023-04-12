@@ -39,9 +39,8 @@ package java.lang;
  *
  * @author  Frank Yellin
  * @see     java.lang.Error
- * @jls 11.2 Compile-Time Checking of Exceptions
  * @since   JDK1.0
- * @arvin注 Exception子类有检查类型和非检查类型
+ * arvin注 Exception子类有检查类型和非检查类型
  */
 public class Exception extends Throwable {
     static final long serialVersionUID = -3387516993124229948L;
