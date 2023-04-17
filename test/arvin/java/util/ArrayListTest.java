@@ -31,9 +31,6 @@ class ArrayListTest {
         }
         list.add(11);
         list.trimToSize();
-        list.size();
-
-
     }
 
     @Test
@@ -174,7 +171,6 @@ class ArrayListTest {
         ArrayList<Integer> list = new ArrayList<>(8);
         Set<Integer> set = new TreeSet<>(Arrays.asList(1,3,5,7,4,8,3));
         list.addAll(set);
-
     }
 
 

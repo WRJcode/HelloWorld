@@ -74,6 +74,8 @@ class ClassTest {
 
     @Test
     void isInstance() {
+        Integer i = 5;
+        System.out.println(Integer.class.isInstance(i));
     }
 
     @Test
@@ -167,6 +169,7 @@ class ClassTest {
 
     @Test
     void getModifiers() {
+        System.out.println(Integer.class.getModifiers());
     }
 
     @Test

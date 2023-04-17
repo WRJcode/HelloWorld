@@ -1,13 +1,31 @@
 package arvin.java.lang;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringTest {
 
+    private static final String AUTHOR = "alvin";
+
+    private String s1 = "hello , world !";
+
+    @BeforeEach
+    void setUp() {
+        System.out.println("============开始测试=========");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("============测试结束=========");
+    }
+
     @Test
     void length() {
+        int length = AUTHOR.length();
+        System.out.println(length);
     }
 
     @Test
@@ -16,18 +34,22 @@ class StringTest {
 
     @Test
     void charAt() {
+        System.out.println(AUTHOR.charAt(1));
     }
 
     @Test
     void codePointAt() {
+        System.out.println(AUTHOR.codePointAt(0));
     }
 
     @Test
     void codePointBefore() {
+        System.out.println(AUTHOR.codePointBefore(1));
     }
 
     @Test
     void codePointCount() {
+        System.out.println(AUTHOR.codePointCount(0,2));
     }
 
     @Test
