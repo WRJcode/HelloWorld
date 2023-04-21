@@ -1,4 +1,4 @@
-package arvin.java.lang;
+package arvin.java.util;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TreeSetTest {
+class HashSetTest {
+
+
 
     @BeforeEach
     void setUp() {
@@ -17,19 +19,15 @@ class TreeSetTest {
     }
 
     @Test
-    void iterator() {
+    void testEquals() {
     }
 
     @Test
-    void descendingIterator() {
+    void testHashCode() {
     }
 
     @Test
-    void descendingSet() {
-    }
-
-    @Test
-    void size() {
+    void removeAll() {
     }
 
     @Test
@@ -41,6 +39,14 @@ class TreeSetTest {
     }
 
     @Test
+    void toArray() {
+    }
+
+    @Test
+    void testToArray() {
+    }
+
+    @Test
     void add() {
     }
 
@@ -49,7 +55,7 @@ class TreeSetTest {
     }
 
     @Test
-    void clear() {
+    void containsAll() {
     }
 
     @Test
@@ -57,63 +63,75 @@ class TreeSetTest {
     }
 
     @Test
-    void subSet() {
+    void testRemoveAll() {
     }
 
     @Test
-    void headSet() {
+    void retainAll() {
     }
 
     @Test
-    void tailSet() {
+    void clear() {
     }
 
     @Test
-    void testSubSet() {
+    void testToString() {
     }
 
     @Test
-    void testHeadSet() {
+    void removeIf() {
     }
 
     @Test
-    void testTailSet() {
+    void spliterator() {
     }
 
     @Test
-    void comparator() {
+    void stream() {
     }
 
     @Test
-    void first() {
+    void parallelStream() {
     }
 
     @Test
-    void last() {
+    void forEach() {
     }
 
     @Test
-    void lower() {
+    void testSpliterator() {
     }
 
     @Test
-    void floor() {
+    void testSpliterator1() {
     }
 
     @Test
-    void ceiling() {
+    void iterator() {
     }
 
     @Test
-    void higher() {
+    void size() {
     }
 
     @Test
-    void pollFirst() {
+    void testIsEmpty() {
     }
 
     @Test
-    void pollLast() {
+    void testContains() {
+    }
+
+    @Test
+    void testAdd() {
+    }
+
+    @Test
+    void testRemove() {
+    }
+
+    @Test
+    void testClear() {
     }
 
     @Test
@@ -121,6 +139,6 @@ class TreeSetTest {
     }
 
     @Test
-    void spliterator() {
+    void testSpliterator2() {
     }
 }

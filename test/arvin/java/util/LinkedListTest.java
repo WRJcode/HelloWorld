@@ -5,10 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
-import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedListTest {
 
@@ -123,7 +121,8 @@ class LinkedListTest {
     @Test
     void testEquals() {
         integers.addAll(Arrays.asList(1,2,6,23,75,2,43,3));
-        System.out.println(integers.equals(integers2));
+        boolean b = integers.equals(integers2);
+        System.out.println(b);
     }
 
     @Test
