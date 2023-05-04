@@ -61,6 +61,7 @@ public class PrintWriter extends Writer {
      *
      * @since 1.2
      */
+    //被装饰的类
     protected Writer out;
 
     private final boolean autoFlush;

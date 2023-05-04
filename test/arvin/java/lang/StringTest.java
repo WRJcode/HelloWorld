@@ -3,7 +3,13 @@ package arvin.java.lang;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sun.nio.cs.UTF_32;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
+import static java.nio.charset.StandardCharsets.UTF_16;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringTest {
@@ -15,6 +21,7 @@ class StringTest {
     @BeforeEach
     void setUp() {
         System.out.println("============开始测试=========");
+
     }
 
     @AfterEach
@@ -26,6 +33,8 @@ class StringTest {
     void length() {
         int length = AUTHOR.length();
         System.out.println(length);
+        String test = new String("hello");
+        System.out.println(test);
     }
 
     @Test
@@ -34,50 +43,68 @@ class StringTest {
 
     @Test
     void charAt() {
-        System.out.println(AUTHOR.charAt(1));
+        char c = AUTHOR.charAt(1);
+        System.out.println(c);
     }
 
     @Test
     void codePointAt() {
-        System.out.println(AUTHOR.codePointAt(0));
+        int code = AUTHOR.codePointAt(0);
+        System.out.println(code);
     }
 
     @Test
     void codePointBefore() {
-        System.out.println(AUTHOR.codePointBefore(1));
+        int code = AUTHOR.codePointBefore(1);
+        System.out.println(code);
     }
 
     @Test
     void codePointCount() {
-        System.out.println(AUTHOR.codePointCount(0,2));
+        int code = AUTHOR.codePointCount(0,2);
+        System.out.println(code);
     }
 
     @Test
     void offsetByCodePoints() {
+       int code =  AUTHOR.offsetByCodePoints(0,1);
+        System.out.println(code);
     }
 
     @Test
     void getChars() {
-    }
-
-    @Test
-    void testGetChars() {
+        char[] chars = new char[10];
+        Arrays.fill(chars,'0');
+        AUTHOR.getChars(0,5,chars,4);
+        System.out.println(Arrays.toString(chars));
     }
 
     @Test
     void getBytes() {
+        byte[] bytes = new byte[10];
+        Arrays.fill(bytes,(byte) 0);
+        AUTHOR.getBytes(0,5,bytes,4);
+        System.out.println(Arrays.toString(bytes));
     }
 
     @Test
     void testGetBytes() {
+        byte[] bytes = new byte[10];
+        //Arrays.fill(bytes,(byte) 0);
+        bytes = AUTHOR.getBytes();
+        System.out.println(Arrays.toString(bytes));
     }
 
     @Test
     void testGetBytes1() {
+        byte[] bytes = AUTHOR.getBytes(StandardCharsets.UTF_8);
+        System.out.println(Arrays.toString(bytes));
     }
 
     @Test
     void testGetBytes2() {
+        byte[] bytes = AUTHOR.getBytes(UTF_16);
+        System.out.println(Arrays.toString(bytes));
     }
 
     @Test
@@ -198,6 +225,9 @@ class StringTest {
 
     @Test
     void matches() {
+        String s = "13172280866";
+        boolean b = s.matches("\\d{11}");
+        System.out.println(b);
     }
 
     @Test

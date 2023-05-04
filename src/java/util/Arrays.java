@@ -48,6 +48,8 @@ import java.util.stream.StreamSupport;
  * sorting and searching). This class also contains a static factory
  * that allows arrays to be viewed as lists.
  *
+ * 此类包含用于操作数组（如排序和搜索）的各种方法。此类还包含一个静态工厂，该工厂允许将数组视为列表。
+ *
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.
  *
@@ -75,6 +77,9 @@ public class Arrays {
      * algorithm will not further partition the sorting task. Using
      * smaller sizes typically results in memory contention across
      * tasks that makes parallel speedups unlikely.
+     *
+     * 能使用分区排序的最小数组长度，低于该长度，并行排序算法将不会进一步对排序任务进行分区。
+     * 使用较小的大小通常会导致任务之间的内存争用，从而使并行加速不太可能
      */
     private static final int MIN_ARRAY_SORT_GRAN = 1 << 13;
 

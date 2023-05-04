@@ -121,7 +121,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
     private static int calculateSize(int numElements) {
         int initialCapacity = MIN_INITIAL_CAPACITY;
-        // Find the best power of two to hold elements.
+        // Find the best power of two to hold elements.寻找最佳2的次方作为容量，如10-16；17-32；35-64...最大为2的30次方
         // Tests "<=" because arrays aren't kept full.
         if (numElements >= initialCapacity) {
             initialCapacity = numElements;

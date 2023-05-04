@@ -577,6 +577,9 @@ public class IdentityHashMap<K,V>
      * deletion. This preserves the linear-probe
      * collision properties required by get, put, etc.
      *
+     * 删除后重新散列所有可能冲突的条目。
+     * 这保留了 get、put 等所需的线性探针碰撞属性。
+     *
      * @param d the index of a newly empty deleted slot
      */
     private void closeDeletion(int d) {

@@ -1,4 +1,4 @@
-package java.util;
+package arvin.java.util;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StringJoinerTest {
+class TimSortTest {
 
     @BeforeEach
     void setUp() {
@@ -17,22 +17,6 @@ class StringJoinerTest {
     }
 
     @Test
-    void setEmptyValue() {
-    }
-
-    @Test
-    void testToString() {
-    }
-
-    @Test
-    void add() {
-    }
-
-    @Test
-    void merge() {
-    }
-
-    @Test
-    void length() {
+    void sort() {
     }
 }

@@ -1,6 +1,10 @@
 package arvin.java.custom;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
+
+    private static final long serialVersionUID = 167893565467L;
 
     private long id;
 

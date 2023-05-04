@@ -114,6 +114,9 @@ import sun.misc.SharedSecrets;
  * {@link HashMap} in place of {@code Hashtable}.  If a thread-safe
  * highly-concurrent implementation is desired, then it is recommended
  * to use {@link java.util.concurrent.ConcurrentHashMap} in place of
+ *
+ * 此类是同步的，不需要同步建议使用HashMap替换，需要同步则建议使用ConcurrentHashMap替换
+ *
  * {@code Hashtable}.
  *
  * @author  Arthur van Hoff

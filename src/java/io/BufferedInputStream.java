@@ -65,10 +65,11 @@ class BufferedInputStream extends FilterInputStream {
      * it may be replaced by another array of
      * a different size.
      */
+    //存储数据的内部缓冲区数组。必要时，可以将其替换为另一个不同大小的数组。
     protected volatile byte buf[];
 
     /**
-     * Atomic updater to provide compareAndSet for buf. This is
+     * Atomic updater to provide compareAndSet for buf. This i
      * necessary because closes can be asynchronous. We use nullness
      * of buf[] as primary indicator that this stream is closed. (The
      * "in" field is also nulled out on close.)
@@ -87,6 +88,7 @@ class BufferedInputStream extends FilterInputStream {
      * </code>contain buffered input data obtained
      * from the underlying  input stream.
      */
+    //count = 有效字节最大索引 + 1
     protected int count;
 
     /**
@@ -104,6 +106,7 @@ class BufferedInputStream extends FilterInputStream {
      *
      * @see     java.io.BufferedInputStream#buf
      */
+    //缓冲区的当前位置
     protected int pos;
 
     /**
@@ -133,6 +136,7 @@ class BufferedInputStream extends FilterInputStream {
      * @see     java.io.BufferedInputStream#mark(int)
      * @see     java.io.BufferedInputStream#pos
      */
+    //当没有被标记，则为-1；若被标记则恒为0-
     protected int markpos = -1;
 
     /**
@@ -147,6 +151,7 @@ class BufferedInputStream extends FilterInputStream {
      * @see     java.io.BufferedInputStream#mark(int)
      * @see     java.io.BufferedInputStream#reset()
      */
+    //标记, readlimit为mark后最多可读取的字节数
     protected int marklimit;
 
     /**
@@ -260,6 +265,7 @@ class BufferedInputStream extends FilterInputStream {
      *                          or an I/O error occurs.
      * @see        java.io.FilterInputStream#in
      */
+    //读取一个字节
     public synchronized int read() throws IOException {
         if (pos >= count) {
             fill();
@@ -330,6 +336,7 @@ class BufferedInputStream extends FilterInputStream {
      *                          invoking its {@link #close()} method,
      *                          or an I/O error occurs.
      */
+    //读取多个字节到byte[]
     public synchronized int read(byte b[], int off, int len)
         throws IOException
     {
@@ -364,6 +371,7 @@ class BufferedInputStream extends FilterInputStream {
      *                          invoking its {@link #close()} method, or an
      *                          I/O error occurs.
      */
+    //跳过n个字节
     public synchronized long skip(long n) throws IOException {
         getBufIfOpen(); // Check for closed stream
         if (n <= 0) {
@@ -405,6 +413,7 @@ class BufferedInputStream extends FilterInputStream {
      *                          invoking its {@link #close()} method,
      *                          or an I/O error occurs.
      */
+    //可以从此输入流读取（或跳过）而不会阻塞的字节数的估计值
     public synchronized int available() throws IOException {
         int n = count - pos;
         int avail = getInIfOpen().available();
@@ -421,6 +430,7 @@ class BufferedInputStream extends FilterInputStream {
      *                      the mark position becomes invalid.
      * @see     java.io.BufferedInputStream#reset()
      */
+    //标记
     public synchronized void mark(int readlimit) {
         marklimit = readlimit;
         markpos = pos;
@@ -442,6 +452,7 @@ class BufferedInputStream extends FilterInputStream {
      *                  method, or an I/O error occurs.
      * @see        java.io.BufferedInputStream#mark(int)
      */
+    //重置mark位置
     public synchronized void reset() throws IOException {
         getBufIfOpen(); // Cause exception if closed
         if (markpos < 0)

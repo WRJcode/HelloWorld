@@ -106,6 +106,8 @@ class PushbackInputStream extends FilterInputStream {
      * <code>-1</code>).
      *
      * @param   in   the input stream from which bytes will be read.
+     *
+     * 构造方法，默认缓冲区长度为1
      */
     public PushbackInputStream(InputStream in) {
         this(in, 1);

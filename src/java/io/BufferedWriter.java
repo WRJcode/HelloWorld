@@ -65,16 +65,21 @@ package java.io;
 
 public class BufferedWriter extends Writer {
 
+    //被修饰类
     private Writer out;
 
+    //内部缓冲区
     private char cb[];
     private int nChars, nextChar;
 
+    //默认缓冲区长度
     private static int defaultCharBufferSize = 8192;
 
     /**
      * Line separator string.  This is the value of the line.separator
      * property at the moment that the stream was created.
+     *
+     * 行分隔符
      */
     private String lineSeparator;
 
@@ -96,6 +101,8 @@ public class BufferedWriter extends Writer {
      * @param  sz   Output-buffer size, a positive integer
      *
      * @exception  IllegalArgumentException  If {@code sz <= 0}
+     *
+     * 构造方法，调用父类构造方方法，并初始化子类中属性
      */
     public BufferedWriter(Writer out, int sz) {
         super(out);
@@ -139,6 +146,7 @@ public class BufferedWriter extends Writer {
     public void write(int c) throws IOException {
         synchronized (lock) {
             ensureOpen();
+            //缓冲区超过长度，自动写入文件中
             if (nextChar >= nChars)
                 flushBuffer();
             cb[nextChar++] = (char) c;

@@ -41,6 +41,9 @@ import java.util.stream.StreamSupport;
  * {@code BitSet} through logical AND, logical inclusive OR, and
  * logical exclusive OR operations.
  *
+ * 1.按需增长的位向量
+ * 2.每一个位集合元素保存一个boolean值
+ *
  * <p>By default, all bits in the set initially have the value
  * {@code false}.
  *
@@ -68,12 +71,12 @@ public class BitSet implements Cloneable, java.io.Serializable {
      * a long, which consists of 64 bits, requiring 6 address bits.
      * The choice of word size is determined purely by performance concerns.
      */
-    private final static int ADDRESS_BITS_PER_WORD = 6;
+    private final static int ADDRESS_BITS_PER_WORD = 6; //64位 long也是64位
     private final static int BITS_PER_WORD = 1 << ADDRESS_BITS_PER_WORD;
     private final static int BIT_INDEX_MASK = BITS_PER_WORD - 1;
 
     /* Used to shift left or right for a partial word mask */
-    private static final long WORD_MASK = 0xffffffffffffffffL;
+    private static final long WORD_MASK = 0xffffffffffffffffL; //64位的模，long的二进制模
 
     /**
      * @serialField bits long[]
@@ -99,6 +102,8 @@ public class BitSet implements Cloneable, java.io.Serializable {
     /**
      * Whether the size of "words" is user-specified.  If so, we assume
      * the user knows what he's doing and try harder to preserve it.
+     *
+     * words大小是否由用户设置，如果是，我们假设用户知道他在做什么，并更加努力地保护它
      */
     private transient boolean sizeIsSticky = false;
 
@@ -874,6 +879,7 @@ public class BitSet implements Cloneable, java.io.Serializable {
     /**
      * Returns true if the specified {@code BitSet} has any bits set to
      * {@code true} that are also set to {@code true} in this {@code BitSet}.
+     * bitSet之间是否有相交
      *
      * @param  set {@code BitSet} to intersect with
      * @return boolean indicating whether this {@code BitSet} intersects

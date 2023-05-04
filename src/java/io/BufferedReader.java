@@ -36,15 +36,19 @@ import java.util.stream.StreamSupport;
 /**
  * Reads text from a character-input stream, buffering characters so as to
  * provide for the efficient reading of characters, arrays, and lines.
+ * 从字符输入流中读取文本，缓冲字符，以便高效读取字符、数组和行
  *
  * <p> The buffer size may be specified, or the default size may be used.  The
  * default is large enough for most purposes.
+ * 可以指定缓冲区大小，也可以使用默认大小。默认值对于大多数用途来说足够大。
  *
  * <p> In general, each read request made of a Reader causes a corresponding
  * read request to be made of the underlying character or byte stream.  It is
  * therefore advisable to wrap a BufferedReader around any Reader whose read()
  * operations may be costly, such as FileReaders and InputStreamReaders.  For
  * example,
+ * 通常，读取器发出的每个读取请求都会导致对基础字符或字节流发出相应的读取请求。
+ * 因此，建议将 BufferedReader 包装在任何 read（） 操作成本高昂的读取器周围，例如 FileReader 和 InputStreamReaders。例如
  *
  * <pre>
  * BufferedReader in

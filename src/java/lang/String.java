@@ -111,9 +111,11 @@ import java.util.regex.PatternSyntaxException;
 public final class String
     implements java.io.Serializable, Comparable<String>, CharSequence {
     /** The value is used for character storage. */
+    /** final，不可变char数组*/
     private final char value[];
 
     /** Cache the hash code for the string */
+    /** 缓存该字符串的哈希值*/
     private int hash; // Default to 0
 
     /** use serialVersionUID from JDK 1.0.2 for interoperability */
@@ -121,7 +123,7 @@ public final class String
 
     /**
      * Class String is special cased within the Serialization Stream Protocol.
-     *
+     * 类字符串在序列化流协议中是特殊情况。String在序列流协议是一个特殊例子 字符串实例根据对象序列化规范第 6.2 节 “流元素”写入
      * A String instance is written into an ObjectOutputStream according to
      * <a href="{@docRoot}/../platform/serialization/spec/output.html">
      * Object Serialization Specification, Section 6.2, "Stream Elements"</a>

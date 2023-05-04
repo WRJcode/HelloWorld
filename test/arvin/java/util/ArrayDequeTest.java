@@ -4,9 +4,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayDeque;
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayDequeTest {
+
+    private static final ArrayDeque<Integer> ARRAY_DEQUE = new ArrayDeque<>();
+    private static final ArrayDeque<Integer> ARRAY_DEQUE_10 = new ArrayDeque<>(10);
 
     @BeforeEach
     void setUp() {
@@ -18,6 +24,8 @@ class ArrayDequeTest {
 
     @Test
     void addFirst() {
+        ARRAY_DEQUE.addFirst(3);
+        System.out.println(ARRAY_DEQUE);
     }
 
     @Test

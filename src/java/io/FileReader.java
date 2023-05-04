@@ -32,6 +32,10 @@ package java.io;
  * size are appropriate.  To specify these values yourself, construct an
  * InputStreamReader on a FileInputStream.
  *
+ * 读取字符文件的便利类。
+ * 此类的构造函数假定默认字符编码和默认字节缓冲区大小是合适的。
+ * 若要自行指定这些值，请在 FileInputStream 上构造 InputStreamReader。
+ *
  * <p><code>FileReader</code> is meant for reading streams of characters.
  * For reading streams of raw bytes, consider using a
  * <code>FileInputStream</code>.

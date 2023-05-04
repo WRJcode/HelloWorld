@@ -31,6 +31,10 @@ package java.io;
  * output stream without necessarily causing a call to the underlying
  * system for each byte written.
  *
+ * 该类实现缓冲输出流。
+ * 通过设置此类输出流，应用程序可以将字节写入基础输出流，
+ * 而不必导致对写入的每个字节调用基础系统。
+ *
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */
@@ -38,6 +42,7 @@ public
 class BufferedOutputStream extends FilterOutputStream {
     /**
      * The internal buffer where data is stored.
+     * 存储数据的内部缓冲区
      */
     protected byte buf[];
 
@@ -46,6 +51,8 @@ class BufferedOutputStream extends FilterOutputStream {
      * in the range <tt>0</tt> through <tt>buf.length</tt>; elements
      * <tt>buf[0]</tt> through <tt>buf[count-1]</tt> contain valid
      * byte data.
+     *
+     * count = 有效字节最大索引 + 1
      */
     protected int count;
 
@@ -65,7 +72,7 @@ class BufferedOutputStream extends FilterOutputStream {
      * size.
      *
      * @param   out    the underlying output stream.
-     * @param   size   the buffer size.
+     * @param   size   the buffer size. 内部缓冲流长度
      * @exception IllegalArgumentException if size &lt;= 0.
      */
     public BufferedOutputStream(OutputStream out, int size) {
@@ -91,6 +98,7 @@ class BufferedOutputStream extends FilterOutputStream {
      * @exception  IOException  if an I/O error occurs.
      */
     public synchronized void write(int b) throws IOException {
+        //当数量大于缓冲流长度时，调用flushBuffer将缓冲流写入文件
         if (count >= buf.length) {
             flushBuffer();
         }
@@ -132,6 +140,8 @@ class BufferedOutputStream extends FilterOutputStream {
     /**
      * Flushes this buffered output stream. This forces any buffered
      * output bytes to be written out to the underlying output stream.
+     *
+     * 刷新此缓冲输出流。这会强制将任何缓冲的输出字节写出到基础输出流。
      *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterOutputStream#out

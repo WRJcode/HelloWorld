@@ -25,6 +25,12 @@ class HashMapTest {
     }
 
     @Test
+    void hashMap1(){
+        HashMap<String,String> hm3 = new HashMap<>(16,0.6f);
+        hm3.put("first","first value");
+    }
+
+    @Test
     void hash() {
         //default
     }

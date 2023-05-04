@@ -101,6 +101,8 @@ public class HashSet<E>
     /**
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * default initial capacity (16) and load factor (0.75).
+     *
+     * HashSet依靠HashMap实现
      */
     public HashSet() {
         map = new HashMap<>();
@@ -151,6 +153,8 @@ public class HashSet<E>
      * HashMap instance is a LinkedHashMap with the specified initial
      * capacity and the specified load factor.
      *
+     * 此方法初始化HashMap实例为LinkedHashMap，但在LinkedHashSet中使用
+     *
      * @param      initialCapacity   the initial capacity of the hash map
      * @param      loadFactor        the load factor of the hash map
      * @param      dummy             ignored (distinguishes this
@@ -165,6 +169,8 @@ public class HashSet<E>
     /**
      * Returns an iterator over the elements in this set.  The elements
      * are returned in no particular order.
+     *
+     * 返回集合元素中的迭代器，没有特定顺序
      *
      * @return an Iterator over the elements in this set
      * @see ConcurrentModificationException
@@ -264,6 +270,7 @@ public class HashSet<E>
     /**
      * Save the state of this <tt>HashSet</tt> instance to a stream (that is,
      * serialize it).
+     * 在流中保存HashSet实例
      *
      * @serialData The capacity of the backing <tt>HashMap</tt> instance
      *             (int), and its load factor (float) are emitted, followed by
@@ -291,6 +298,7 @@ public class HashSet<E>
     /**
      * Reconstitute the <tt>HashSet</tt> instance from a stream (that is,
      * deserialize it).
+     * 从流重新构造HashSet实例（即反序列化它）。
      */
     private void readObject(java.io.ObjectInputStream s)
         throws java.io.IOException, ClassNotFoundException {

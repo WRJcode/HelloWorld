@@ -26,6 +26,28 @@ class ThreadTest {
         }
     }
 
+    public static void first()
+    {
+        second();
+    }
+    public static void second()
+    {
+        third();
+    }
+    public static void third()
+    {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        System.out.println("Displaying Stack trace using StackTraceElement in Java");
+        for(StackTraceElement st : stackTrace)
+        {
+            // print the stack trace
+            System.out.println(st);
+        }
+    }
+
+
+
+
     @BeforeEach
     void setUp() {
         System.out.println("============开始测试=========");
@@ -137,58 +159,108 @@ class ThreadTest {
 
     @Test
     void enumerate() {
+         myThread.start();
+         //加上myThread一共3个线程
+         Thread[] threads = new Thread[3];
+         Thread.enumerate(threads);
+        for (Thread t:threads) {
+            System.out.println(t.getName());
+        }
     }
 
     @Test
     void countStackFrames() {
+         //已弃用
     }
 
     @Test
-    void join() {
+    void join() throws InterruptedException {
+         myThread.start();
+         myThread.join();
+         System.out.println("等待死亡");
     }
 
     @Test
-    void testJoin() {
+    void testJoin() throws InterruptedException {
+        myThread.start();
+        myThread.join(1000);
+        System.out.println("等待死亡");
     }
 
     @Test
-    void testJoin1() {
+    void testJoin1() throws InterruptedException {
+
+        //等到线程
+
+        myThread.start();
+        myThread.join(1000,1000);
+        System.out.println("等待死亡");
     }
 
     @Test
     void dumpStack() {
+        //default
     }
 
     @Test
     void setDaemon() {
+         //设置为守护线程，主要线程结束之后会自动关闭
+         myThread.setDaemon(true);
     }
 
     @Test
     void isDaemon() {
+         //判断是否是守护线程
     }
 
     @Test
     void checkAccess() {
+         //确定当前正在运行的线程是否有权修改此线程。
+         //如果有安全管理器，则使用此线程作为其参数调用其 checkAccess 方法。这可能会导致引发 SecurityException
+         myThread.checkAccess();
     }
 
     @Test
     void testToString() {
+        String s =  myThread.toString();
+        System.out.println(s);
     }
 
     @Test
     void getContextClassLoader() {
+         ClassLoader cl= myThread.getContextClassLoader();
+         System.out.println(cl.toString());
     }
 
     @Test
     void setContextClassLoader() {
+         //设置类加载器
     }
 
     @Test
-    void holdsLock() {
+    void holdsLock() throws InterruptedException {
+
+         //检测当前线程是否持有锁
+
+         Object o = new Object();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized(o) {
+                    System.out.println("child thread: holdLock: " +
+                            Thread.holdsLock(o));
+                }
+            }
+        }).start();
+        System.out.println("main thread: holdLock: " + Thread.holdsLock(o));
+        Thread.sleep(2000);
+
     }
 
     @Test
     void getStackTrace() {
+
+        first();
     }
 
     @Test
@@ -197,10 +269,18 @@ class ThreadTest {
 
     @Test
     void getId() {
+        long id = myThread.getId();
+        System.out.println(id);
     }
 
     @Test
-    void getState() {
+    void getState() throws InterruptedException {
+        Thread.State state = myThread.getState();
+        System.out.println(state); //NEW
+        myThread.start();
+        System.out.println(myThread.getState());//RUNNABLE
+        Thread.sleep(6 * 1000);
+        System.out.println(myThread.getState());//TERMINATED
     }
 
     @Test
@@ -221,5 +301,6 @@ class ThreadTest {
 
     @Test
     void processQueue() {
+
     }
 }
