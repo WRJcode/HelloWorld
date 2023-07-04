@@ -1,0 +1,3 @@
+This is "sequence1.txt".
+how are you?
+Teacher or student?

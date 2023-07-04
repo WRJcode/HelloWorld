@@ -25,12 +25,13 @@ class ArrayListTest {
      */
     @Test
     void trimToSize() {
-        ArrayList<Integer> list = new ArrayList<>(8);
+        ArrayList<Integer> list = new ArrayList<>(10);
         for (int i = 1; i <= 10 ; i++) {
             list.add(i);
         }
         list.add(11);
         list.trimToSize();
+        System.out.println(list);
     }
 
     @Test

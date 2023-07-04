@@ -1,0 +1,2 @@
+This is "sequence2.txt".
+And you can learn something.
