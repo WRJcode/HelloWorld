@@ -1,4 +1,4 @@
-package arvin.java.util.demo;
+package arvin.java.util.concurrent.demo;
 
 /*
  实现Runnable接口
