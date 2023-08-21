@@ -35,8 +35,7 @@ package java.lang.reflect;
  *
  * @author Nakul Saraiya
  */
-public final
-class Array {
+public final class Array {
 
     /**
      * Constructor.  Class Array is not instantiable.
