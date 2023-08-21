@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InputStreamTest {
 
-    private InputStream inputStream = Files.newInputStream(Paths.get("C:\\Users\\wrjco\\Desktop\\ifi-board.txt"));;
+    private final InputStream inputStream = Files.newInputStream(Paths.get("C:\\Users\\wrjco\\Desktop\\ifi-board.txt"));;
 
     InputStreamTest() throws IOException {
     }
@@ -40,13 +40,11 @@ class InputStreamTest {
 
     @Test
     void skip() throws IOException {
-
         System.out.println(inputStream.skip(1000l));
     }
 
     @Test
     void available() throws IOException {
-
         System.out.println(inputStream.available());
     }
 
@@ -57,7 +55,6 @@ class InputStreamTest {
 
     @Test
     void mark() throws IOException {
-
         inputStream.mark(300);
     }
 
