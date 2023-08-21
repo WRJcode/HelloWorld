@@ -16,7 +16,6 @@ class ByteArrayInputStreamTest {
             0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A
     };
 
-
     @BeforeEach
     void setUp() {
     }
@@ -33,8 +32,6 @@ class ByteArrayInputStreamTest {
                 System.out.print("0x"+Integer.toHexString(code)+ ":" + (char)code + "\t");
             }
         }
-
-
     }
 
     @Test
