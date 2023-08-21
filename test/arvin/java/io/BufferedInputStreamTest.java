@@ -56,8 +56,6 @@ class BufferedInputStreamTest {
                 ex.printStackTrace();
             }
         }
-
-
     }
 
     @Test
