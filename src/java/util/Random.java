@@ -73,8 +73,12 @@ import sun.misc.Unsafe;
  * @author  Frank Yellin
  * @since   1.0
  */
-public
-class Random implements java.io.Serializable {
+/*
+   用于生成伪随机数：
+   1.相同种子同次次数生成随机数相同
+   2.两个构造函数，其中空构造函数使用默认的种子，另一个构造函数设置自定义种子
+ */
+public class Random implements java.io.Serializable {
     /** use serialVersionUID from JDK 1.1 for interoperability */
     static final long serialVersionUID = 3905348978240129619L;
 
@@ -91,7 +95,7 @@ class Random implements java.io.Serializable {
 
     private static final double DOUBLE_UNIT = 0x1.0p-53; // 1.0 / (1L << 53)
 
-    // IllegalArgumentException messages
+    // IllegalArgumentException messages 非法参数异常消息
     static final String BadBound = "bound must be positive";
     static final String BadRange = "bound must be greater than origin";
     static final String BadSize  = "size must be non-negative";
@@ -100,6 +104,7 @@ class Random implements java.io.Serializable {
      * Creates a new random number generator. This constructor sets
      * the seed of the random number generator to a value very likely
      * to be distinct from any other invocation of this constructor.
+     * 每次调用此构造函数，都将随机数生成器的种子设置为一个值，此值大概率不同于此构造函数的任何其他调用
      */
     public Random() {
         this(seedUniquifier() ^ System.nanoTime());
@@ -136,7 +141,7 @@ class Random implements java.io.Serializable {
         if (getClass() == Random.class)
             this.seed = new AtomicLong(initialScramble(seed));
         else {
-            // subclass might have overriden setSeed
+            // subclass might have overriden setSeed 子类可能已经覆盖了 setSeed
             this.seed = new AtomicLong();
             setSeed(seed);
         }
