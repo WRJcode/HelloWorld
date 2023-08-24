@@ -74,9 +74,7 @@ import sun.misc.Unsafe;
  * @since   1.0
  */
 /*
-   ÓÃÓÚÉú³ÉÎ±Ëæ»úÊı£º
-   1.ÏàÍ¬ÖÖ×ÓÍ¬´Î´ÎÊıÉú³ÉËæ»úÊıÏàÍ¬
-   2.Á½¸ö¹¹Ôìº¯Êı£¬ÆäÖĞ¿Õ¹¹Ôìº¯ÊıÊ¹ÓÃÄ¬ÈÏµÄÖÖ×Ó£¬ÁíÒ»¸ö¹¹Ôìº¯ÊıÉèÖÃ×Ô¶¨ÒåÖÖ×Ó
+
  */
 public class Random implements java.io.Serializable {
     /** use serialVersionUID from JDK 1.1 for interoperability */
@@ -95,7 +93,7 @@ public class Random implements java.io.Serializable {
 
     private static final double DOUBLE_UNIT = 0x1.0p-53; // 1.0 / (1L << 53)
 
-    // IllegalArgumentException messages ·Ç·¨²ÎÊıÒì³£ÏûÏ¢
+    // IllegalArgumentException messages  éæ³•å¼‚å¸¸æ¶ˆæ¯
     static final String BadBound = "bound must be positive";
     static final String BadRange = "bound must be greater than origin";
     static final String BadSize  = "size must be non-negative";
@@ -104,7 +102,7 @@ public class Random implements java.io.Serializable {
      * Creates a new random number generator. This constructor sets
      * the seed of the random number generator to a value very likely
      * to be distinct from any other invocation of this constructor.
-     * Ã¿´Îµ÷ÓÃ´Ë¹¹Ôìº¯Êı£¬¶¼½«Ëæ»úÊıÉú³ÉÆ÷µÄÖÖ×ÓÉèÖÃÎªÒ»¸öÖµ£¬´ËÖµ´ó¸ÅÂÊ²»Í¬ÓÚ´Ë¹¹Ôìº¯ÊıµÄÈÎºÎÆäËûµ÷ÓÃ
+     *  åˆ›å»ºä¸€ä¸ªæ–°çš„éšæœºæ•°ç”Ÿæˆå™¨ã€‚è¿™ä¸ªæ„é€ å‡½æ•°å°†éšæœºæ•°ç”Ÿæˆå™¨çš„ç§å­è®¾ç½®ä¸ºä¸€ä¸ªå€¼ï¼Œè¯¥å€¼å¾ˆå¯èƒ½ä¸åŒäºè¿™ä¸ªæ„é€ å‡½æ•°çš„ä»»ä½•å…¶ä»–è°ƒç”¨ã€‚
      */
     public Random() {
         this(seedUniquifier() ^ System.nanoTime());
@@ -141,7 +139,7 @@ public class Random implements java.io.Serializable {
         if (getClass() == Random.class)
             this.seed = new AtomicLong(initialScramble(seed));
         else {
-            // subclass might have overriden setSeed ×ÓÀà¿ÉÄÜÒÑ¾­¸²¸ÇÁË setSeed
+            // subclass might have overriden setSeed  å­ç±»å¯èƒ½å·²ç»è¦†ç›–äº†setSeed
             this.seed = new AtomicLong();
             setSeed(seed);
         }
@@ -583,7 +581,7 @@ public class Random implements java.io.Serializable {
      * @return the next pseudorandom, Gaussian ("normally") distributed
      *         {@code double} value with mean {@code 0.0} and
      *         standard deviation {@code 1.0} from this random number
-     *         generator's sequence
+     *         generator\ sequence
      */
     synchronized public double nextGaussian() {
         // See Knuth, ACP, Section 3.4.1 Algorithm C.
