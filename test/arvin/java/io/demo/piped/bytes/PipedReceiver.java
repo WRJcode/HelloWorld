@@ -1,6 +1,5 @@
 package arvin.java.io.demo.piped.bytes;
 
-import org.testng.internal.EclipseInterface;
 
 import java.io.IOException;
 import java.io.PipedInputStream;

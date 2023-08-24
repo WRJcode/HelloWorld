@@ -33,6 +33,7 @@ import com.sun.org.apache.xerces.internal.xs.datatypes.ByteList;
  *
  * @version $Id: ByteListImpl.java,v 1.7 2010-11-01 04:39:46 joehw Exp $
  */
+@SuppressWarnings("rawtypes")
 public class ByteListImpl extends AbstractList implements ByteList {
 
     // actually data stored in a byte array

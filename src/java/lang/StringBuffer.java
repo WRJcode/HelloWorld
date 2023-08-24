@@ -94,6 +94,10 @@ import java.util.Arrays;
  * @see     java.lang.String
  * @since   JDK1.0
  */
+
+/**
+ 
+ */
  public final class StringBuffer
     extends AbstractStringBuilder
     implements java.io.Serializable, CharSequence
@@ -102,6 +106,7 @@ import java.util.Arrays;
     /**
      * A cache of the last value returned by toString. Cleared
      * whenever the StringBuffer is modified.
+     * toString
      */
     private transient char[] toStringCache;
 

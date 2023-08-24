@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@SuppressWarnings("unused")
 public class SerializationExample {
     public static void main(String[] args) {
         String fileName = "serialized_object.ser";

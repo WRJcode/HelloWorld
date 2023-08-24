@@ -1,14 +1,15 @@
 package arvin.java.util;
 
+import java.util.ArrayDeque;
+import java.util.Collections;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayDeque;
-import java.util.Collections;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("unused")
 class ArrayDequeTest {
 
     private static final ArrayDeque<Integer> ARRAY_DEQUE = new ArrayDeque<>();

@@ -51,6 +51,7 @@ import sun.swing.SwingUtilities2;
 /**
  * @author Scott Violet
  */
+@SuppressWarnings("serial")
 public class GTKLookAndFeel extends SynthLookAndFeel {
     private static final boolean IS_22;
 
